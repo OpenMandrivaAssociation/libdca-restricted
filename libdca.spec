@@ -1,22 +1,17 @@
-%define name libdca
-%define version 0.0.5
-%define release %mkrel 3
 %define distsuffix plf
+
 %define major 0
 %define libname %mklibname dca %{major}
 %define develname %mklibname -d dca
 
-Summary: DTS Coherent Acoustics decoder
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://download.videolan.org/pub/videolan/libdca/%version/%{name}-%version.tar.bz2
-License: GPLv2+
-Group: Sound
-Url: http://www.videolan.org/developers/libdca.html
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Obsoletes: dtsdec
-Provides: dtsdec
+Name:		libdca
+Version:	0.0.5
+Release:	%mkrel 3
+Summary:	DTS Coherent Acoustics decoder
+License:	GPLv2+
+Group:		Sound
+Url:		http://www.videolan.org/developers/libdca.html
+Source0:	http://download.videolan.org/pub/videolan/libdca/%{version}/%{name}-%{version}.tar.bz2
 
 %description
 This is a free decoder for the DTS Coherent Acoustics format. It
@@ -27,10 +22,10 @@ DTS audio CDs.
 This package is in restricted as it might violate some patents.
 
 %package tools
-Summary: DTS Coherent Acoustics decoder
-Group: Sound
-Obsoletes: dtsdec
-Provides: dtsdec
+Summary:	DTS Coherent Acoustics decoder
+Group:		Sound
+Obsoletes:	dtsdec < %{version}-%{release}
+Provides:	dtsdec = %{version}-%{release}
 
 %description tools
 This is a free decoder for the DTS Coherent Acoustics format. It
@@ -41,8 +36,8 @@ DTS audio CDs.
 This package is in restricted as it might violate some patents.
 
 %package -n %{libname}
-Group: System/Libraries
-Summary: DTS Coherent Acoustics decoder shared library
+Group:		System/Libraries
+Summary:	DTS Coherent Acoustics decoder shared library
 
 %description -n %{libname}
 This is a free decoder for the DTS Coherent Acoustics format. It
@@ -53,12 +48,12 @@ DTS audio CDs.
 This package is in restricted as it might violate some patents.
 
 %package -n %{develname}
-Group: Development/C
-Summary: Library for decoding DTS audio - C development files
-Requires: %{libname} = %{version}-%{release}
-Provides: %{name}-devel = %{version}-%{release}
-Obsoletes: dtsdec-devel
-Provides: dtsdec-devel
+Group:		Development/C
+Summary:	Library for decoding DTS audio - C development files
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
+Provides:	dtsdec-devel < %{version}-%{release}
+Provides:	dtsdec-devel = %{version}-%{release}
 
 %description -n %{develname}
 This is a free decoder for the DTS Coherent Acoustics format.DTS is a
@@ -71,30 +66,24 @@ develop with libdts.
 This is in restricted as it might violate some patents.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 %configure2_5x --disable-static
 %make
 
 %install
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 %makeinstall_std
 # libdca installs broken libdts.a compatibility symlink;
 # replace it with shared devel symlink:
-rm %{buildroot}%{_libdir}/libdts.a
-ln -s libdca.so %{buildroot}%{_libdir}/libdts.so
+%__rm -f %{buildroot}%{_libdir}/libdts.a
+%__ln_s libdca.so %{buildroot}%{_libdir}/libdts.so
 
 %clean
-rm -rf %{buildroot}
-
-%if %mdvver < 200900
-%post -n %libname -p /sbin/ldconfig
-%postun -n %libname -p /sbin/ldconfig
-%endif
+%__rm -rf %{buildroot}
 
 %files tools
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog NEWS README TODO
 %{_bindir}/dtsdec
 %{_bindir}/dcadec
@@ -104,11 +93,9 @@ rm -rf %{buildroot}
 %{_mandir}/man1/extract_dca.1*
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/libdca.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %doc TODO
 %{_includedir}/dts.h
 %{_includedir}/dca.h
@@ -120,7 +107,7 @@ rm -rf %{buildroot}
 %changelog
 * Fri Aug 19 2011 Andrey Bondrov <bondrov@math.dvgu.ru> 0.0.5-3plf2011.0
 - Port from PLF to restricted
-- Little spec clean up
+- Spec clean up
 
 * Mon Jul 20 2009 Anssi Hannula <anssi@zarb.org> 0.0.5-2plf2010.0
 - remove broken static library compatibility symlink and replace it with
