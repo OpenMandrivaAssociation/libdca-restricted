@@ -2,12 +2,12 @@
 
 %define major 0
 %define libname %mklibname dca %{major}
-%define develname %mklibname -d dca
+%define devname %mklibname -d dca
 
+Summary:	DTS Coherent Acoustics decoder
 Name:		libdca
 Version:	0.0.5
-Release:	4
-Summary:	DTS Coherent Acoustics decoder
+Release:	5
 License:	GPLv2+
 Group:		Sound
 Url:		http://www.videolan.org/developers/libdca.html
@@ -21,11 +21,13 @@ DTS audio CDs.
 
 This package is in restricted as it might violate some patents.
 
+#----------------------------------------------------------------------------
+
 %package tools
 Summary:	DTS Coherent Acoustics decoder
 Group:		Sound
-Obsoletes:	dtsdec < %{version}-%{release}
-Provides:	dtsdec = %{version}-%{release}
+Obsoletes:	dtsdec < %{EVRD}
+Provides:	dtsdec = %{EVRD}
 
 %description tools
 This is a free decoder for the DTS Coherent Acoustics format. It
@@ -35,9 +37,22 @@ DTS audio CDs.
 
 This package is in restricted as it might violate some patents.
 
+%files tools
+%doc AUTHORS ChangeLog NEWS README TODO
+%{_bindir}/dtsdec
+%{_bindir}/dcadec
+%{_bindir}/extract_dca
+%{_bindir}/extract_dts
+%{_mandir}/man1/dcadec.1*
+%{_mandir}/man1/dtsdec.1*
+%{_mandir}/man1/extract_dca.1*
+%{_mandir}/man1/extract_dts.1*
+
+#----------------------------------------------------------------------------
+
 %package -n %{libname}
-Group:		System/Libraries
 Summary:	DTS Coherent Acoustics decoder shared library
+Group:		System/Libraries
 
 %description -n %{libname}
 This is a free decoder for the DTS Coherent Acoustics format. It
@@ -47,14 +62,19 @@ DTS audio CDs.
 
 This package is in restricted as it might violate some patents.
 
-%package -n %{develname}
-Group:		Development/C
-Summary:	Library for decoding DTS audio - C development files
-Requires:	%{libname} = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
-Provides:	dtsdec-devel = %{version}-%{release}
+%files -n %{libname}
+%{_libdir}/libdca.so.%{major}*
 
-%description -n %{develname}
+#----------------------------------------------------------------------------
+
+%package -n %{devname}
+Summary:	Library for decoding DTS audio - C development files
+Group:		Development/C
+Requires:	%{libname} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
+Provides:	dtsdec-devel = %{EVRD}
+
+%description -n %{devname}
 This is a free decoder for the DTS Coherent Acoustics format.DTS is a
 high quality multi-channel (5.1) digital audio format used in DVDs and
 DTS audio CDs.
@@ -63,6 +83,16 @@ This package contains a library and the required header files to
 develop with libdts.
 
 This is in restricted as it might violate some patents.
+
+%files -n %{devname}
+%doc TODO
+%{_includedir}/dts.h
+%{_includedir}/dca.h
+%{_libdir}/*.so
+%{_libdir}/pkgconfig/libdca.pc
+%{_libdir}/pkgconfig/libdts.pc
+
+#----------------------------------------------------------------------------
 
 %prep
 %setup -q
@@ -77,24 +107,4 @@ This is in restricted as it might violate some patents.
 # replace it with shared devel symlink:
 rm -f %{buildroot}%{_libdir}/libdts.a
 ln -s libdca.so %{buildroot}%{_libdir}/libdts.so
-
-%files tools
-%doc AUTHORS ChangeLog NEWS README TODO
-%{_bindir}/dtsdec
-%{_bindir}/dcadec
-%{_bindir}/extract_dca
-%{_bindir}/extract_dts
-%{_mandir}/man1/dcadec.1*
-%{_mandir}/man1/extract_dca.1*
-
-%files -n %{libname}
-%{_libdir}/libdca.so.%{major}*
-
-%files -n %{develname}
-%doc TODO
-%{_includedir}/dts.h
-%{_includedir}/dca.h
-%{_libdir}/*.so
-%{_libdir}/pkgconfig/libdca.pc
-%{_libdir}/pkgconfig/libdts.pc
 
