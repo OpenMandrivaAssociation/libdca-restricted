@@ -6,7 +6,7 @@
 
 Name:		libdca
 Version:	0.0.5
-Release:	%mkrel 3
+Release:	4
 Summary:	DTS Coherent Acoustics decoder
 License:	GPLv2+
 Group:		Sound
@@ -91,6 +91,8 @@ This is in restricted as it might violate some patents.
 %{_bindir}/extract_dts
 %{_mandir}/man1/dcadec.1*
 %{_mandir}/man1/extract_dca.1*
+%{_mandir}/man1/dtsdec.1*
+%{_mandir}/man1/extract_dts.1*
 
 %files -n %{libname}
 %{_libdir}/libdca.so.%{major}*
@@ -100,7 +102,6 @@ This is in restricted as it might violate some patents.
 %{_includedir}/dts.h
 %{_includedir}/dca.h
 %{_libdir}/*.so
-%{_libdir}/*a
 %{_libdir}/pkgconfig/libdca.pc
 %{_libdir}/pkgconfig/libdts.pc
 
