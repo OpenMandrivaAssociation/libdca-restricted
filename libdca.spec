@@ -6,7 +6,7 @@
 
 Name:		libdca
 Version:	0.0.5
-Release:	5
+Release:	6
 Summary:	DTS Coherent Acoustics decoder
 License:	GPLv2+
 Group:		Sound
