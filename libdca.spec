@@ -1,4 +1,6 @@
 %define distsuffix plf
+%define _disable_rebuild_configure 1
+%define _disable_lto 1
 
 %define major 0
 %define libname %mklibname dca %{major}
