@@ -7,8 +7,8 @@
 %define develname %mklibname -d dca
 
 Name:		libdca
-Version:	0.0.5
-Release:	6
+Version:	0.0.6
+Release:	1
 Summary:	DTS Coherent Acoustics decoder
 License:	GPLv2+
 Group:		Sound
@@ -72,11 +72,11 @@ This is in restricted as it might violate some patents.
 
 %build
 %configure2_5x --disable-static
-%make
+%make_build
 
 %install
 %__rm -rf %{buildroot}
-%makeinstall_std
+%make_install
 # libdca installs broken libdts.a compatibility symlink;
 # replace it with shared devel symlink:
 %__rm -f %{buildroot}%{_libdir}/libdts.a
