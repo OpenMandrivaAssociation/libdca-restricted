@@ -116,31 +116,31 @@ This is in restricted as it might violate some patents.
 - remove broken static library compatibility symlink and replace it with
   a shared library compatibility symlink
 
-* Thu Jul 24 2008 Götz Waschk <goetz@zarb.org> 0.0.5-1plf2009.0
+* Thu Jul 24 2008 GÃ¶tz Waschk <goetz@zarb.org> 0.0.5-1plf2009.0
 - rename to libdca
 
-* Thu Jan 17 2008 Götz Waschk <goetz@zarb.org> 0.0.2-6plf2008.1
+* Thu Jan 17 2008 GÃ¶tz Waschk <goetz@zarb.org> 0.0.2-6plf2008.1
 - rebuild
 
-* Sun Dec  3 2006 Götz Waschk <goetz@zarb.org> 0.0.2-5plf2007.1
+* Sun Dec  3 2006 GÃ¶tz Waschk <goetz@zarb.org> 0.0.2-5plf2007.1
 - fix description
 - add dts_internal header for avidemux
 
-* Mon Aug 28 2006 Götz Waschk <goetz@zarb.org> 0.0.2-4plf2007.0
+* Mon Aug 28 2006 GÃ¶tz Waschk <goetz@zarb.org> 0.0.2-4plf2007.0
 - rebuild
 
 * Sun Aug 07 2005 trem <trem@zarb.org> 0.0.2-3plf
 - add distsuffix
 
-* Mon May 23 2005 Götz Waschk <goetz@zarb.org> 0.0.2-2plf
+* Mon May 23 2005 GÃ¶tz Waschk <goetz@zarb.org> 0.0.2-2plf
 - mkrel
 
-* Wed Nov  3 2004 Götz Waschk <goetz@zarb.org> 0.0.2-1plf
+* Wed Nov  3 2004 GÃ¶tz Waschk <goetz@zarb.org> 0.0.2-1plf
 - initial plf package
 
-* Tue Mar  2 2004 Götz Waschk <waschk@linux-mandrake.com> 0.0.2-1mdk
+* Tue Mar  2 2004 GÃ¶tz Waschk <waschk@linux-mandrake.com> 0.0.2-1mdk
 - the header has moved to %_includedir
 - new version
 
-* Wed Feb 11 2004 Götz Waschk <waschk@linux-mandrake.com> 0.0.1-1mdk
+* Wed Feb 11 2004 GÃ¶tz Waschk <waschk@linux-mandrake.com> 0.0.1-1mdk
 - initial package
