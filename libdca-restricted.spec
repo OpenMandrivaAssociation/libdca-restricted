@@ -7,7 +7,7 @@
 %define develname %mklibname -d dca
 
 Name:		libdca
-Version:	0.0.6
+Version:	0.0.7
 Release:	1
 Summary:	DTS Coherent Acoustics decoder
 License:	GPLv2+
@@ -71,7 +71,8 @@ This is in restricted as it might violate some patents.
 %setup -q
 
 %build
-%configure2_5x --disable-static
+autoreconf -vfi
+%configure --disable-static
 %make_build
 
 %install
