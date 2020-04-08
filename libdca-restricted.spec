@@ -71,6 +71,7 @@ This is in restricted as it might violate some patents.
 %setup -q
 
 %build
+autoreconf -vfi
 %configure --disable-static
 %make_build
 
