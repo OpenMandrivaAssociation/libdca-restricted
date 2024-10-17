@@ -12,7 +12,7 @@ Release:	1
 Summary:	DTS Coherent Acoustics decoder
 License:	GPLv2+
 Group:		Sound
-Url:		http://www.videolan.org/developers/libdca.html
+Url:		https://www.videolan.org/developers/libdca.html
 Source0:	http://download.videolan.org/pub/videolan/libdca/%{version}/%{name}-%{version}.tar.bz2
 
 %description
