@@ -1,10 +1,10 @@
-%define distsuffix plf
-%define _disable_rebuild_configure 1
-%define _disable_lto 1
+#define distsuffix plf
+%global	_disable_rebuild_configure 1
+%global	_disable_lto 1
 
-%define major 0
-%define libname %mklibname dca %{major}
-%define develname %mklibname -d dca
+%define	major 0
+%define	libname %mklibname dca %{major}
+%define	develname %mklibname -d dca
 
 Summary:	DTS Coherent Acoustics decoder
 Name:	libdca
@@ -20,7 +20,6 @@ Patch0:	libdca-0.0.7-fix-typos-in-Makefile_am.patch
 This is a free decoder for the DTS Coherent Acoustics format. It consists of a
 library and a command line decoder. DTS is a high quality multi-channel (5.1)
 digital audio format used in DVDs and DTS audio CDs.
-This package is in restricted as it might violate some patents.
 
 #-----------------------------------------------------------------------------
 
@@ -33,7 +32,6 @@ Group:		Sound
 This is a free decoder for the DTS Coherent Acoustics format. It consists of a
 library and a command line decoder. DTS is a high quality multi-channel (5.1)
 digital audio format used in DVDs and DTS audio CDs.
-This package is in restricted as it might violate some patents.
 
 %files tools
 %doc ChangeLog NEWS README TODO
@@ -56,8 +54,7 @@ Summary:	DTS Coherent Acoustics decoder shared library
 This is a free decoder for the DTS Coherent Acoustics format. It consists of a
 library and a command line decoder. DTS is a high quality multi-channel (5.1)
 digital audio format used in DVDs and DTS audio CDs.
-This package contains the main library. It is in restricted as it might
-violate some patents.
+This package contains the main library.
 
 %files -n %{libname}
 %{_libdir}/libdca.so.%{major}*
@@ -77,7 +74,6 @@ library and a command line decoder. DTS is a high quality multi-channel (5.1)
 digital audio format used in DVDs and DTS audio CDs.
 This package contains a library and the required header files to develop with
 libdts.
-This is in restricted as it might violate some patents.
 
 %files -n %{develname}
 %doc TODO doc/libdca.txt
