@@ -16,6 +16,11 @@ Url:		https://www.videolan.org/developers/libdca.html
 Source0:	http://download.videolan.org/pub/videolan/libdca/%{version}/%{name}-%{version}.tar.bz2
 Patch0:	libdca-0.0.7-fix-typos-in-Makefile_am.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 This is a free decoder for the DTS Coherent Acoustics format. It consists of a
 library and a command line decoder. DTS is a high quality multi-channel (5.1)
